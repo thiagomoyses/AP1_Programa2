@@ -1,28 +1,26 @@
 '''
-#########################################################
-#Codigo no Git Hub: 
-#-------------------------------------------------------#
-#Created by: Thiago da Silva Moyses                     #
-#RA: 1811515099                                         #
-#Course: electrical engineering                         #
-#GitHub: http://github.com/thiagomoyses                 #
-#-------------------------------------------------------#
-#created by: Washington Luis Santos Bezerra             #
-#RA: 1811512370                                         #
-#Course: computer engineering                           #
-#GitHub: http://github.com/washington-bezerra           #
-#-------------------------------------------------------#
-#Last Update: 2020/04/06                                #
-#########################################################
+##################################################################
+#Codigo no Git Hub: https://github.com/thiagomoyses/AP1_Programa2#
+#----------------------------------------------------------------#
+#Created by: Thiago da Silva Moyses                              #
+#RA: 1811515099                                                  #
+#Course: electrical engineering                                  #
+#GitHub: http://github.com/thiagomoyses                          #
+#----------------------------------------------------------------#
+#created by: Washington Luis Santos Bezerra                      #
+#RA: 1811512370                                                  #
+#Course: computer engineering                                    #
+#GitHub: http://github.com/washington-bezerra                    #
+#----------------------------------------------------------------#
+#Last Update: 2020/04/12                                         #
+##################################################################
 '''
 #bibliotecas
 import csv
-import os.path
 
 def opcoes():
-
+    #Variavel Global
     global caminho, nome_csv
-    os.system('cls')
     print("#################### MENU ##########################")
     print("#                                                  #")
     print("# 1. Abrir arquivo de configuracao.                #")
@@ -42,10 +40,9 @@ def opcoes():
         except:
             print("Opçao invalida")
     os.system('cls')
-
+#funçao 01(conforme instruçoes)
 def opcao1():
     global caminho, nome_csv
-
     caminho = input("Diga qual o caminho onde será salvo: ")
     nome_csv = input("Nome do arquivo (sem a extenção): ")
 
@@ -67,7 +64,7 @@ def opcao1():
 
     print('= Tudo certo, você será levado à 2 etapa. =')
     opcao2()
-
+#funçao 02(conforme instruçoes)
 def opcao2():
 
     desejo = "S"
@@ -99,7 +96,7 @@ def opcao2():
 
         print("Vc finalizou os inputs, será levado à etapa 3")
         opcao3()
-
+#funçao 03(conforme instruçoes)
 def opcao3():
 
     try:
