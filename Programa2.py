@@ -17,9 +17,10 @@
 '''
 #bibliotecas
 import csv
+import os.path
 
 def opcoes():
-    #Variavel Global
+
     global caminho, nome_csv
     print("#################### MENU ##########################")
     print("#                                                  #")
@@ -39,10 +40,10 @@ def opcoes():
                 break
         except:
             print("Opçao invalida")
-    os.system('cls')
-#funçao 01(conforme instruçoes)
+
 def opcao1():
     global caminho, nome_csv
+
     caminho = input("Diga qual o caminho onde será salvo: ")
     nome_csv = input("Nome do arquivo (sem a extenção): ")
 
@@ -59,12 +60,9 @@ def opcao1():
     csv_file.close()
     print('Seu arquivo será aberto')
     os.system(f'{caminho}/"{nome_csv}.csv"')  # Abre o arquivo
-
-    os.system("cls")
-
     print('= Tudo certo, você será levado à 2 etapa. =')
     opcao2()
-#funçao 02(conforme instruçoes)
+
 def opcao2():
 
     desejo = "S"
@@ -83,7 +81,6 @@ def opcao2():
                 writer.writerow({"Nome": nome, "IP": IP, "Hostname": hostname})
 
         except NameError:
-            os.system("cls")
             print("ERROR!!! Você pulou a etapa 1, vc será redirecionado à mesma, preencha corretamente e"
                   "depois volte à opção 2")
             opcao1()
@@ -92,11 +89,9 @@ def opcao2():
 
     if desejo == "N":
 
-        os.system("cls")
-
         print("Vc finalizou os inputs, será levado à etapa 3")
         opcao3()
-#funçao 03(conforme instruçoes)
+
 def opcao3():
 
     try:
@@ -108,7 +103,6 @@ def opcao3():
             print('{:15}|{:15}|{:15}'.format(linha[0], linha[1], linha[2]))
 
     except NameError:
-        os.system("cls")
         print("ERROR!!! Você pulou a etapa 1, vc será redirecionado à mesma, preencha corretamente e"
               "depois volte à opção 2")
         opcao1()
