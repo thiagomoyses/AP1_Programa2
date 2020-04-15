@@ -44,7 +44,7 @@ def opcoes():
 def opcao1():
     global caminho, nome_csv
 
-    caminho = input("Diga qual o caminho onde será salvo: ")
+    caminho = input("Diga qual o caminho onde será salvo, se o caminho nao existir sera criado (Ex: C:/teste): ")
     nome_csv = input("Nome do arquivo (sem a extenção): ")
 
     if os.path.exists(f'{caminho}') == False:  # Verifica se existe a pasta Edital
@@ -58,12 +58,19 @@ def opcao1():
 
 
     csv_file.close()
-    print('Seu arquivo será aberto')
-    os.system(f'{caminho}/"{nome_csv}.csv"')  # Abre o arquivo
-    print('= Tudo certo, você será levado à 2 etapa. =')
+
+    print('\n\n= Tudo certo, você será levado à 2 etapa. =')
     opcao2()
 
 def opcao2():
+    try:
+        with open(f'{caminho}\{nome_csv}.csv', mode='a', newline='') as csv_file:
+            pass
+
+    except NameError:
+        print("ERROR!!! Você pulou a etapa 1, vc será redirecionado à mesma, preencha corretamente e"
+              "depois volte à opção 2")
+        opcao1()
 
     desejo = "S"
 
@@ -81,7 +88,7 @@ def opcao2():
                 writer.writerow({"Nome": nome, "IP": IP, "Hostname": hostname})
 
         except NameError:
-            print("ERROR!!! Você pulou a etapa 1, vc será redirecionado à mesma, preencha corretamente e"
+            print("ERRO!!! Você pulou a etapa 1, vc será redirecionado à mesma, preencha corretamente e "
                   "depois volte à opção 2")
             opcao1()
 
@@ -89,7 +96,7 @@ def opcao2():
 
     if desejo == "N":
 
-        print("Vc finalizou os inputs, será levado à etapa 3")
+        print("\n\n== Vc finalizou os inputs, será levado à etapa 3 ==")
         opcao3()
 
 def opcao3():
